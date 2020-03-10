@@ -8,7 +8,13 @@ app.use(express.json())
 app.use(cors())
 
 // Db Connection
-mongoose.connect('mongodb://localhost:27017/nodeapi', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/nodeapi', { 
+    useNewUrlParser: true, 
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+ })
 
 // Requires all models at once
 requireDir('./src/models')

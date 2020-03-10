@@ -4,7 +4,7 @@ const Product = mongoose.model('Product')
 
 module.exports = {
   async index(req, res) {
-    const { page = 1 } = req.query; // Get page from qs or set default 1
+    const { page = 1 } = req.query; // Get page from qs or set default 1 (desestruturação)
     const products = await Product.paginate({}, { page, limit: 10 })
 
     return res.json(products)
